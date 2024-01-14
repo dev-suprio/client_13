@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Text-based Blog</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .menu {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .menu a {
+            color: #000000;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .menu a:hover {
+            background-color: #333;
+        }
+        
+        .posts {
+            margin-bottom: 20px;
+        }
+        
+        .post {
+            background-color: #ffffff;
+            color: #000;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text based website</h1>
+
+    <div class="menu">
+        <a href="#" onclick="showPosts('home')">Home</a>
+        <a href="#" onclick="showPosts('very-short')">Short Posts</a>
+        <a href="#" onclick="showPosts('medium-length')">Medium Posts</a>
+        <a href="#" onclick="showPosts('very-long')">Long Posts</a>
+    </div>
+
+    <div class="posts" id="posts-container"></div>
+
+    <script>
+        function showPosts(category) {
+            const postsContainer = document.getElementById('posts-container');
+            postsContainer.innerHTML = ''; // Clear previous posts
+            
+            if (category === 'very-short') {
+                addPost('This is a very short post.');
+                addPost('Another very short post.');
+                addPost('Yet another very short post.');
+            } else if (category === 'medium-length') {
+                addPost('This is a medium length post that provides some valuable information.');
+                addPost('Another medium length post with important details.');
+            } else if (category === 'very-long') {
+                addPost('This is a very long post that goes into great detail about a specific topic.');
+            } else if (category === 'home') {
+                addPost('This is a HOME post that provides some valuable information.');
+            }
+        }
+        
+        function addPost(content) {
+            const postDiv = document.createElement('div');
+            postDiv.classList.add('post');
+            postDiv.textContent = content;
+            
+            document.getElementById('posts-container').appendChild(postDiv);
+        }
+    </script>
+</body>
+</html>
